@@ -127,7 +127,7 @@
 
             <dependency>
                 <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-service</artifactId>
+                <artifactId>quinn-service-server</artifactId>
                 <version>${framework.version}</version>
             </dependency>
 
