@@ -19,6 +19,7 @@
 
     <properties>
         <util.version>1.0.0</util.version>
+        <util-private.version>1.0.0</util-private.version>
         <framework.version>1.0.0</framework.version>
         <licence-provider.version>1.0.0</licence-provider.version>
         <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
@@ -69,6 +70,18 @@
                 <groupId>com.quinn.framework</groupId>
                 <artifactId>quinn-service-framework</artifactId>
                 <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.util</groupId>
+                <artifactId>quinn-service-util</artifactId>
+                <version>${util.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.util</groupId>
+                <artifactId>quinn-service-private</artifactId>
+                <version>${util-private.version}</version>
             </dependency>
 
             <dependency>
@@ -163,12 +176,6 @@
 
             <dependency>
                 <groupId>com.quinn.util</groupId>
-                <artifactId>quinn-util-encrypt-file</artifactId>
-                <version>${util.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.util</groupId>
                 <artifactId>quinn-util-excel</artifactId>
                 <version>${util.version}</version>
             </dependency>
@@ -182,12 +189,6 @@
             <dependency>
                 <groupId>com.quinn.util</groupId>
                 <artifactId>quinn-util-generate</artifactId>
-                <version>${util.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.util</groupId>
-                <artifactId>quinn-util-licence</artifactId>
                 <version>${util.version}</version>
             </dependency>
 
@@ -207,6 +208,18 @@
                 <groupId>com.quinn.util</groupId>
                 <artifactId>quinn-util-stream</artifactId>
                 <version>${util.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.util</groupId>
+                <artifactId>quinn-util-encrypt-file</artifactId>
+                <version>${util-private.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.util</groupId>
+                <artifactId>quinn-util-licence</artifactId>
+                <version>${util-private.version}</version>
             </dependency>
 
             <dependency>
