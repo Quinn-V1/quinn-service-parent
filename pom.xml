@@ -51,7 +51,44 @@
         <app.charset>UTF-8</app.charset>
     </properties>
 
-    <!-- 设定团队持续集成发布包服务器 -->
+    <repositories>
+        <repository>
+            <id>maven-quinn</id>
+            <name>Maven China Mirror</name>
+            <url>http://212.64.54.213:8081/repository/maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>maven-ali</id>
+            <name>Maven China Mirror</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven-ali</id>
+            <name>Maven China Mirror</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
     <distributionManagement>
         <repository>
             <id>releases</id>
