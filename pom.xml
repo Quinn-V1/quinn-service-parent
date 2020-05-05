@@ -41,7 +41,7 @@
         <quartz.version>2.3.2</quartz.version>
         <jsoup.version>1.7.3</jsoup.version>
         <esapi.version>2.1.0</esapi.version>
-        <activiti-dependencies.version>7.1.24</activiti-dependencies.version>
+        <activiti.version>7.1.0.M6</activiti.version>
         <pagehelper.version>5.1.8</pagehelper.version>
         <tobato-fast-dfs.version>1.27.2</tobato-fast-dfs.version>
         <pagehelper-spring.version>1.2.12</pagehelper-spring.version>
@@ -299,12 +299,41 @@
             </dependency>
 
             <dependency>
-                <groupId>org.activiti.dependencies</groupId>
-                <artifactId>activiti-dependencies</artifactId>
-                <version>${activiti-dependencies.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
+                <groupId>org.activiti</groupId>
+                <artifactId>activiti-engine</artifactId>
+                <version>${activiti.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.activiti</groupId>
+                <artifactId>activiti-bpmn-model</artifactId>
+                <version>${activiti.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.activiti</groupId>
+                <artifactId>activiti-spring</artifactId>
+                <version>${activiti.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.activiti</groupId>
+                <artifactId>activiti-bpmn-converter</artifactId>
+                <version>${activiti.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.activiti</groupId>
+                <artifactId>activiti-json-converter</artifactId>
+                <version>${activiti.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.activiti</groupId>
+                <artifactId>activiti-bpmn-layout</artifactId>
+                <version>${activiti.version}</version>
+            </dependency>
+
 
             <dependency>
                 <groupId>io.springfox</groupId>
