@@ -224,7 +224,7 @@
 
             <dependency>
                 <groupId>com.quinn.util</groupId>
-                <artifactId>quinn-util-encrypt</artifactId>
+                <artifactId>quinn-util-database</artifactId>
                 <version>${util.version}</version>
             </dependency>
 
@@ -262,18 +262,6 @@
                 <groupId>com.quinn.util</groupId>
                 <artifactId>quinn-util-stream</artifactId>
                 <version>${util.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.util</groupId>
-                <artifactId>quinn-util-encrypt-file</artifactId>
-                <version>${util-private.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.util</groupId>
-                <artifactId>quinn-util-licence</artifactId>
-                <version>${util-private.version}</version>
             </dependency>
 
 <!--            <dependency>-->
