@@ -122,24 +122,6 @@
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.util</groupId>
-                <artifactId>quinn-service-util</artifactId>
-                <version>${util.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.util</groupId>
-                <artifactId>quinn-service-private</artifactId>
-                <version>${util-private.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-licence</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>com.quinn.framework</groupId>
                 <artifactId>quinn-service-api</artifactId>
                 <version>${framework.version}</version>
@@ -159,7 +141,7 @@
 
             <dependency>
                 <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-file-default</artifactId>
+                <artifactId>quinn-service-email</artifactId>
                 <version>${framework.version}</version>
             </dependency>
 
@@ -177,7 +159,19 @@
 
             <dependency>
                 <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-service-jasypt</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
                 <artifactId>quinn-service-redis</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-service-run</artifactId>
                 <version>${framework.version}</version>
             </dependency>
 
@@ -201,8 +195,52 @@
 
             <dependency>
                 <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-service-session</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-service-shiro</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-service-sso</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-service-swagger</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-service-test</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
                 <artifactId>quinn-service-websocket</artifactId>
                 <version>${framework.version}</version>
+            </dependency>
+
+
+
+            <dependency>
+                <groupId>com.quinn.util</groupId>
+                <artifactId>quinn-service-private</artifactId>
+                <version>${util-private.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.util</groupId>
+                <artifactId>quinn-service-util</artifactId>
+                <version>${util.version}</version>
             </dependency>
 
             <dependency>
