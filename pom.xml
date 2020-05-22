@@ -42,6 +42,7 @@
         <jsoup.version>1.7.3</jsoup.version>
         <esapi.version>2.1.0</esapi.version>
         <activiti.version>7.1.0.M6</activiti.version>
+        <shiro.version>1.5.3</shiro.version>
         <pagehelper.version>5.1.8</pagehelper.version>
         <spring.version>5.1.13.RELEASE</spring.version>
         <spring-framework.version>5.1.13.RELEASE</spring-framework.version>
@@ -485,6 +486,36 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-quartz</artifactId>
+                <version>${shiro.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>quartz</artifactId>
+                        <groupId>org.opensymphony.quartz</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
             </dependency>
 
             <dependency>
