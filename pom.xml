@@ -43,6 +43,7 @@
         <esapi.version>2.1.0</esapi.version>
         <activiti.version>7.1.0.M6</activiti.version>
         <shiro.version>1.5.3</shiro.version>
+        <ehcache.version>2.10.6</ehcache.version>
         <pagehelper.version>5.1.8</pagehelper.version>
         <spring.version>5.1.13.RELEASE</spring.version>
         <spring-framework.version>5.1.13.RELEASE</spring-framework.version>
@@ -136,6 +137,12 @@
             <dependency>
                 <groupId>com.quinn.framework</groupId>
                 <artifactId>quinn-service-datasource</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-service-ehcache</artifactId>
                 <version>${framework.version}</version>
             </dependency>
 
@@ -506,6 +513,12 @@
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct-processor</artifactId>
                 <version>${mapstruct.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.sf.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>${ehcache.version}</version>
             </dependency>
 
             <dependency>
