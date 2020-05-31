@@ -185,6 +185,12 @@
 
             <dependency>
                 <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-service-quartz</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
                 <artifactId>quinn-service-rabbitmq</artifactId>
                 <version>${framework.version}</version>
             </dependency>
@@ -198,6 +204,12 @@
             <dependency>
                 <groupId>com.quinn.framework</groupId>
                 <artifactId>quinn-service-run</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-service-scheduler</artifactId>
                 <version>${framework.version}</version>
             </dependency>
 
