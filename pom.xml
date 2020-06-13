@@ -407,6 +407,12 @@
                 <version>${activiti.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.activiti</groupId>
+                <artifactId>activiti-image-generator</artifactId>
+                <version>${activiti.version}</version>
+            </dependency>
+
 
             <dependency>
                 <groupId>io.springfox</groupId>
