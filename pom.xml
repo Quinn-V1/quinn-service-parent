@@ -41,6 +41,7 @@
         <quartz.version>2.3.2</quartz.version>
         <jsoup.version>1.7.3</jsoup.version>
         <esapi.version>2.1.0</esapi.version>
+        <beanutils.version>1.9.4</beanutils.version>
         <activiti.version>7.1.0.M6</activiti.version>
         <shiro.version>1.5.3</shiro.version>
         <ehcache.version>2.10.6</ehcache.version>
@@ -137,6 +138,12 @@
 
             <dependency>
                 <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-service-cache</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
                 <artifactId>quinn-service-datasource</artifactId>
                 <version>${framework.version}</version>
             </dependency>
@@ -162,7 +169,7 @@
             <dependency>
                 <groupId>com.quinn.framework</groupId>
                 <artifactId>quinn-service-file-miniio</artifactId>
-                <version>1.0.0</version>
+                <version>${framework.version}</version>
             </dependency>
 
             <dependency>
@@ -186,6 +193,12 @@
             <dependency>
                 <groupId>com.quinn.framework</groupId>
                 <artifactId>quinn-service-mq</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-service-mq-ehcache</artifactId>
                 <version>${framework.version}</version>
             </dependency>
 
@@ -274,7 +287,6 @@
             </dependency>
 
 
-
             <dependency>
                 <groupId>com.quinn.util</groupId>
                 <artifactId>quinn-service-private</artifactId>
@@ -347,29 +359,29 @@
                 <version>${util.version}</version>
             </dependency>
 
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.cloud</groupId>-->
-<!--                <artifactId>spring-cloud-dependencies</artifactId>-->
-<!--                <version>${spring-cloud.version}</version>-->
-<!--                <scope>import</scope>-->
-<!--                <type>pom</type>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.cloud</groupId>-->
+            <!--                <artifactId>spring-cloud-dependencies</artifactId>-->
+            <!--                <version>${spring-cloud.version}</version>-->
+            <!--                <scope>import</scope>-->
+            <!--                <type>pom</type>-->
+            <!--            </dependency>-->
 
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.cloud</groupId>-->
-<!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
-<!--                <version>${spring-cloud-alibaba.version}</version>-->
-<!--                <scope>import</scope>-->
-<!--                <type>pom</type>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.cloud</groupId>-->
+            <!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
+            <!--                <version>${spring-cloud-alibaba.version}</version>-->
+            <!--                <scope>import</scope>-->
+            <!--                <type>pom</type>-->
+            <!--            </dependency>-->
 
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-dependencies</artifactId>-->
-<!--                <version>${spring-boot.version}</version>-->
-<!--                <scope>import</scope>-->
-<!--                <type>pom</type>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.boot</groupId>-->
+            <!--                <artifactId>spring-boot-dependencies</artifactId>-->
+            <!--                <version>${spring-boot.version}</version>-->
+            <!--                <scope>import</scope>-->
+            <!--                <type>pom</type>-->
+            <!--            </dependency>-->
 
             <dependency>
                 <groupId>org.activiti</groupId>
@@ -616,6 +628,12 @@
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-core</artifactId>
                 <version>${shiro.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-beanutils</groupId>
+                        <artifactId>commons-beanutils</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>
@@ -645,7 +663,17 @@
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-autoconfigure</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>commons-beanutils</groupId>
+                        <artifactId>commons-beanutils</artifactId>
+                    </exclusion>
                 </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${beanutils.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
