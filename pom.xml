@@ -52,6 +52,7 @@
         <tobato-fast-dfs.version>1.27.2</tobato-fast-dfs.version>
         <pagehelper-spring.version>1.2.12</pagehelper-spring.version>
         <mapstruct.version>1.2.0.Final</mapstruct.version>
+        <maven-resource-plugin.version>3.0.1</maven-resource-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
