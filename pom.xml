@@ -157,6 +157,12 @@
 
             <dependency>
                 <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-service-config</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
                 <artifactId>quinn-service-datasource</artifactId>
                 <version>${framework.version}</version>
             </dependency>
