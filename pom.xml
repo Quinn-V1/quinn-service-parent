@@ -42,6 +42,7 @@
         <jsoup.version>1.7.3</jsoup.version>
         <esapi.version>2.1.0</esapi.version>
         <beanutils.version>1.9.4</beanutils.version>
+        <commons-lang.version>2.3</commons-lang.version>
         <activiti.version>7.1.0.M6</activiti.version>
         <shiro.version>1.5.3</shiro.version>
         <ehcache.version>2.10.6</ehcache.version>
@@ -712,6 +713,14 @@
                 <artifactId>commons-beanutils</artifactId>
                 <version>${beanutils.version}</version>
             </dependency>
+
+
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
