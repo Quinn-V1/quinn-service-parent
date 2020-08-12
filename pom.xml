@@ -64,7 +64,7 @@
         <repository>
             <id>maven-quinn</id>
             <name>Maven China Mirror</name>
-            <url>http://212.64.54.213:8081/repository/maven-public/</url>
+            <url>http://www.lsqhy.com:8081/repository/maven-public/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -329,12 +329,6 @@
                 <groupId>com.quinn.util</groupId>
                 <artifactId>quinn-service-private</artifactId>
                 <version>${util-private.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.util</groupId>
-                <artifactId>quinn-service-util</artifactId>
-                <version>${util.version}</version>
             </dependency>
 
             <dependency>
