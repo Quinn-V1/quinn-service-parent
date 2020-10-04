@@ -12,16 +12,28 @@
 
     <groupId>com.quinn</groupId>
     <artifactId>quinn-service-parent</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.0</version>
     <name>quinn-service-parent</name>
     <description>Quinn Service 父项目</description>
     <packaging>pom</packaging>
 
     <properties>
-        <util.version>1.0.0</util.version>
-        <util-private.version>1.0.0</util-private.version>
-        <framework.version>1.0.0</framework.version>
-        <licence-provider.version>1.0.0</licence-provider.version>
+        <util.version>2.0.0</util.version>
+        <util-private.version>2.0.0</util-private.version>
+        <file.version>2.0.0</file.version>
+        <cache.version>2.0.0</cache.version>
+        <mq.version>2.0.0</mq.version>
+        <message.version>2.0.0</message.version>
+        <scheduler.version>2.0.0</scheduler.version>
+        <strategy.version>2.0.0</strategy.version>
+        <sso.version>2.0.0</sso.version>
+        <bpm.version>2.0.0</bpm.version>
+        <scada.version>2.0.0</scada.version>
+        <framework.version>2.0.0</framework.version>
+        <cloud.version>2.0.0</cloud.version>
+        <nosql.version>2.0.0</nosql.version>
+        <stream.version>2.0.0</stream.version>
+
         <spring-boot.version>2.1.12.RELEASE</spring-boot.version>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
         <spring-cloud-alibaba.version>0.9.0.RELEASE</spring-cloud-alibaba.version>
@@ -34,6 +46,7 @@
         <mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
         <mybatis.version>3.5.0</mybatis.version>
         <druid.version>1.1.21</druid.version>
+        <oracle.version>12.1.0.2</oracle.version>
         <aspectjweaver.version>1.9.5</aspectjweaver.version>
         <fastjson.version>1.2.56</fastjson.version>
         <swagger-annotations.version>1.5.21</swagger-annotations.version>
@@ -43,8 +56,11 @@
         <esapi.version>2.1.0</esapi.version>
         <beanutils.version>1.9.4</beanutils.version>
         <commons-lang.version>2.3</commons-lang.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
         <activiti.version>7.1.0.M6</activiti.version>
         <shiro.version>1.5.3</shiro.version>
+        <batik-all.version>1.10</batik-all.version>
+        <xml-apis-ext.version>2.5.0</xml-apis-ext.version>
         <ehcache.version>2.10.6</ehcache.version>
         <pagehelper.version>5.1.8</pagehelper.version>
         <mini-io.version>3.0.12</mini-io.version>
@@ -54,10 +70,24 @@
         <pagehelper-spring.version>1.2.12</pagehelper-spring.version>
         <mapstruct.version>1.2.0.Final</mapstruct.version>
         <maven-resource-plugin.version>3.0.1</maven-resource-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <maven-resource-plugin.version>3.1.0</maven-resource-plugin.version>
+        <poi.version>3.17</poi.version>
+        <zookeeper.version>3.5.5</zookeeper.version>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <app.charset>UTF-8</app.charset>
+        <modbus4j.version>3.0.3</modbus4j.version>
+        <jlibmodbus.version>1.2.9.7</jlibmodbus.version>
+        <modbus-master-tcp.version>1.1.0</modbus-master-tcp.version>
+
+        <org.openscada.external.jcifs.version>1.2.25</org.openscada.external.jcifs.version>
+        <org.openscada.jinterop.core.version>2.1.8</org.openscada.jinterop.core.version>
+        <org.openscada.jinterop.deps.version>1.5.0</org.openscada.jinterop.deps.version>
+        <openscada.opc.version>1.5.0</openscada.opc.version>
+        <bcprov-jdk15on.version>1.61</bcprov-jdk15on.version>
     </properties>
 
     <repositories>
@@ -91,7 +121,32 @@
                 <enabled>true</enabled>
             </releases>
         </repository>
+
+        <!-- 若想引用modbus4j需要引入下列repository id:ias-snapshots id:ias-releases 两个 ，使用默认仓库下载，不要使用阿里云仓库-->
+        <repository>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>ias-snapshots</id>
+            <name>Infinite Automation Snapshot Repository</name>
+            <url>https://maven.mangoautomation.net/repository/ias-snapshot/</url>
+        </repository>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>ias-releases</id>
+            <name>Infinite Automation Release Repository</name>
+            <url>https://maven.mangoautomation.net/repository/ias-release/</url>
+        </repository>
     </repositories>
+
     <pluginRepositories>
         <pluginRepository>
             <id>maven-ali</id>
@@ -121,6 +176,103 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-service-cloud</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-config-api</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-config-base</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-config-nacos</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-config-run</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-customer-api</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-customer-base</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-customer-feign</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-customer-nacos</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-customer-webclient</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-customer-run</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-provider-api</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-provider-base</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-provider-nacos</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-provider-sdk</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cloud</groupId>
+                <artifactId>quinn-cloud-provider-run</artifactId>
+                <version>${cloud.version}</version>
+            </dependency>
+
+
+            <dependency>
                 <groupId>com.quinn.framework</groupId>
                 <artifactId>quinn-service-framework</artifactId>
                 <version>${framework.version}</version>
@@ -128,212 +280,456 @@
 
             <dependency>
                 <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-api</artifactId>
+                <artifactId>quinn-framework-api</artifactId>
                 <version>${framework.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-activiti</artifactId>
+                <artifactId>quinn-framework-biz</artifactId>
                 <version>${framework.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-biz</artifactId>
+                <artifactId>quinn-framework-datasource</artifactId>
                 <version>${framework.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-framework-datasource-multi</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-framework-jasypt</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-framework-mongodb</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-framework-safa</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-framework-server</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-framework-session</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-framework-swagger</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-framework-test</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-framework-websocket</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-framework-run</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.framework</groupId>
+                <artifactId>quinn-framework-zookeeper</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+
+<!--            <dependency>-->
+<!--                <groupId>com.quinn.scada</groupId>-->
+<!--                <artifactId>quinn-service-scada</artifactId>-->
+<!--                <version>${scada.version}</version>-->
+<!--            </dependency>-->
+
+<!--            <dependency>-->
+<!--                <groupId>com.quinn.scada</groupId>-->
+<!--                <artifactId>quinn-scada-api</artifactId>-->
+<!--                <version>${scada.version}</version>-->
+<!--            </dependency>-->
+
+<!--            <dependency>-->
+<!--                <groupId>com.quinn.scada</groupId>-->
+<!--                <artifactId>quinn-scada-base</artifactId>-->
+<!--                <version>${scada.version}</version>-->
+<!--            </dependency>-->
+
+<!--            <dependency>-->
+<!--                <groupId>com.quinn.scada</groupId>-->
+<!--                <artifactId>quinn-scada-opc-utgard</artifactId>-->
+<!--                <version>${scada.version}</version>-->
+<!--            </dependency>-->
+
+<!--            <dependency>-->
+<!--                <groupId>com.quinn.scada</groupId>-->
+<!--                <artifactId>quinn-scada-modbus-tcp</artifactId>-->
+<!--                <version>${scada.version}</version>-->
+<!--            </dependency>-->
+
+<!--            <dependency>-->
+<!--                <groupId>com.quinn.scada</groupId>-->
+<!--                <artifactId>quinn-scada-run</artifactId>-->
+<!--                <version>${scada.version}</version>-->
+<!--            </dependency>-->
+
+
+            <dependency>
+                <groupId>com.quinn.bpm</groupId>
                 <artifactId>quinn-service-bpm</artifactId>
-                <version>${framework.version}</version>
+                <version>${bpm.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-cache</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.bpm</groupId>
+                <artifactId>quinn-bpm-api</artifactId>
+                <version>${bpm.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-datasource</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.bpm</groupId>
+                <artifactId>quinn-bpm-base</artifactId>
+                <version>${bpm.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-ehcache</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.bpm</groupId>
+                <artifactId>quinn-bpm-activiti-in</artifactId>
+                <version>${bpm.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-email</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.bpm</groupId>
+                <artifactId>quinn-bpm-activiti-md</artifactId>
+                <version>${bpm.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-file-fast</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.bpm</groupId>
+                <artifactId>quinn-bpm-run</artifactId>
+                <version>${bpm.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.quinn.sso</groupId>
+                <artifactId>quinn-service-sso</artifactId>
+                <version>${sso.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-file-miniio</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.sso</groupId>
+                <artifactId>quinn-sso-api</artifactId>
+                <version>${sso.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-i18n</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.sso</groupId>
+                <artifactId>quinn-sso-base</artifactId>
+                <version>${sso.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-jasypt</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.sso</groupId>
+                <artifactId>quinn-sso-shiro</artifactId>
+                <version>${sso.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
+                <groupId>com.quinn.sso</groupId>
+                <artifactId>quinn-sso-spring</artifactId>
+                <version>${sso.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.sso</groupId>
+                <artifactId>quinn-sso-run</artifactId>
+                <version>${sso.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.quinn.scheduler</groupId>
+                <artifactId>quinn-service-scheduler</artifactId>
+                <version>${scheduler.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.scheduler</groupId>
+                <artifactId>quinn-scheduler-api</artifactId>
+                <version>${scheduler.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.scheduler</groupId>
+                <artifactId>quinn-scheduler-base</artifactId>
+                <version>${scheduler.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.scheduler</groupId>
+                <artifactId>quinn-scheduler-quartz</artifactId>
+                <version>${scheduler.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.scheduler</groupId>
+                <artifactId>quinn-scheduler-strategy</artifactId>
+                <version>${scheduler.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.scheduler</groupId>
+                <artifactId>quinn-scheduler-run</artifactId>
+                <version>${scheduler.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.quinn.strategy</groupId>
+                <artifactId>quinn-service-strategy</artifactId>
+                <version>${strategy.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.strategy</groupId>
+                <artifactId>quinn-strategy-api</artifactId>
+                <version>${strategy.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.strategy</groupId>
+                <artifactId>quinn-strategy-base</artifactId>
+                <version>${strategy.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.strategy</groupId>
+                <artifactId>quinn-strategy-cache</artifactId>
+                <version>${strategy.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.strategy</groupId>
+                <artifactId>quinn-strategy-run</artifactId>
+                <version>${strategy.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.quinn.message</groupId>
                 <artifactId>quinn-service-message</artifactId>
-                <version>${framework.version}</version>
+                <version>${message.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-mongodb</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.message</groupId>
+                <artifactId>quinn-message-api</artifactId>
+                <version>${message.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
+                <groupId>com.quinn.message</groupId>
+                <artifactId>quinn-message-base</artifactId>
+                <version>${message.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.message</groupId>
+                <artifactId>quinn-message-email</artifactId>
+                <version>${message.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.message</groupId>
+                <artifactId>quinn-message-wechart</artifactId>
+                <version>${message.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.message</groupId>
+                <artifactId>quinn-message-run</artifactId>
+                <version>${message.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.quinn.mq</groupId>
                 <artifactId>quinn-service-mq</artifactId>
                 <version>${framework.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-mq-ehcache</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.mq</groupId>
+                <artifactId>quinn-mq-api</artifactId>
+                <version>${mq.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-nacos-config</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.mq</groupId>
+                <artifactId>quinn-mq-base</artifactId>
+                <version>${mq.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-nacos-customer</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.mq</groupId>
+                <artifactId>quinn-mq-ehcache</artifactId>
+                <version>${mq.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-nacos-provider</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.mq</groupId>
+                <artifactId>quinn-mq-rabbitmq</artifactId>
+                <version>${mq.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-quartz</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-rabbitmq</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-redis</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-run</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-scheduler</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-sdk</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-security</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-server</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-session</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-shiro</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-sso</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-swagger</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-test</artifactId>
-                <version>${framework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.quinn.framework</groupId>
-                <artifactId>quinn-service-websocket</artifactId>
-                <version>${framework.version}</version>
+                <groupId>com.quinn.mq</groupId>
+                <artifactId>quinn-mq-run</artifactId>
+                <version>${mq.version}</version>
             </dependency>
 
 
             <dependency>
-                <groupId>com.quinn.util</groupId>
+                <groupId>com.quinn.cache</groupId>
+                <artifactId>quinn-service-cache</artifactId>
+                <version>${cache.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cache</groupId>
+                <artifactId>quinn-cache-api</artifactId>
+                <version>${cache.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cache</groupId>
+                <artifactId>quinn-cache-base</artifactId>
+                <version>${cache.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cache</groupId>
+                <artifactId>quinn-cache-ehcache</artifactId>
+                <version>${cache.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cache</groupId>
+                <artifactId>quinn-cache-redis</artifactId>
+                <version>${cache.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.cache</groupId>
+                <artifactId>quinn-cache-run</artifactId>
+                <version>${cache.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.quinn.file</groupId>
+                <artifactId>quinn-service-file</artifactId>
+                <version>${file.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.file</groupId>
+                <artifactId>quinn-file-api</artifactId>
+                <version>${file.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.file</groupId>
+                <artifactId>quinn-file-base</artifactId>
+                <version>${file.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.file</groupId>
+                <artifactId>quinn-file-locale</artifactId>
+                <version>${file.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.file</groupId>
+                <artifactId>quinn-file-fdfs</artifactId>
+                <version>${file.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.file</groupId>
+                <artifactId>quinn-file-miniio</artifactId>
+                <version>${file.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.file</groupId>
+                <artifactId>quinn-file-run</artifactId>
+                <version>${file.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.quinn.private</groupId>
                 <artifactId>quinn-service-private</artifactId>
                 <version>${util-private.version}</version>
             </dependency>
 
             <dependency>
+                <groupId>com.quinn.private</groupId>
+                <artifactId>quinn-private-cloud</artifactId>
+                <version>${util-private.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.private</groupId>
+                <artifactId>quinn-private-danger</artifactId>
+                <version>${util-private.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.private</groupId>
+                <artifactId>quinn-private-licence</artifactId>
+                <version>${util-private.version}</version>
+            </dependency>
+
+
+            <dependency>
                 <groupId>com.quinn.util</groupId>
                 <artifactId>quinn-service-util</artifactId>
+                <version>${util.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.util</groupId>
+                <artifactId>quinn-util-api</artifactId>
                 <version>${util.version}</version>
             </dependency>
 
@@ -375,7 +771,25 @@
 
             <dependency>
                 <groupId>com.quinn.util</groupId>
+                <artifactId>quinn-util-generate-run</artifactId>
+                <version>${util.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.util</groupId>
                 <artifactId>quinn-util-metadata</artifactId>
+                <version>${util.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.util</groupId>
+                <artifactId>quinn-util-metadata-db</artifactId>
+                <version>${util.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.util</groupId>
+                <artifactId>quinn-util-metadata-excel</artifactId>
                 <version>${util.version}</version>
             </dependency>
 
@@ -387,7 +801,19 @@
 
             <dependency>
                 <groupId>com.quinn.util</groupId>
+                <artifactId>quinn-util-reflect</artifactId>
+                <version>${util.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.util</groupId>
                 <artifactId>quinn-util-stream</artifactId>
+                <version>${util.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.quinn.util</groupId>
+                <artifactId>quinn-util-svg</artifactId>
                 <version>${util.version}</version>
             </dependency>
 
@@ -413,6 +839,18 @@
                 <version>${spring-boot.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.xmlgraphics</groupId>
+                <artifactId>batik-all</artifactId>
+                <version>${batik-all.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.clojars.pallix</groupId>
+                <artifactId>xml-apis-ext</artifactId>
+                <version>${xml-apis-ext.version}</version>
             </dependency>
 
             <dependency>
@@ -708,13 +1146,112 @@
                 <version>${beanutils.version}</version>
             </dependency>
 
-
             <dependency>
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>${commons-lang.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc7</artifactId>
+                <version>${oracle.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.infiniteautomation</groupId>
+                <artifactId>modbus4j</artifactId>
+                <version>${modbus4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.intelligt.modbus</groupId>
+                <artifactId>jlibmodbus</artifactId>
+                <version>${jlibmodbus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.digitalpetri.modbus</groupId>
+                <artifactId>modbus-master-tcp</artifactId>
+                <version>${modbus-master-tcp.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.openscada.external</groupId>
+                <artifactId>org.openscada.external.jcifs</artifactId>
+                <version>${org.openscada.external.jcifs.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.openscada.jinterop</groupId>
+                <artifactId>org.openscada.jinterop.core</artifactId>
+                <version>${org.openscada.jinterop.core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.openscada.jinterop</groupId>
+                <artifactId>org.openscada.jinterop.deps</artifactId>
+                <version>${org.openscada.jinterop.deps.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.openscada.utgard</groupId>
+                <artifactId>org.openscada.opc.dcom</artifactId>
+                <version>${openscada.opc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.openscada.utgard</groupId>
+                <artifactId>org.openscada.opc.lib</artifactId>
+                <version>${openscada.opc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15on</artifactId>
+                <version>${bcprov-jdk15on.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
