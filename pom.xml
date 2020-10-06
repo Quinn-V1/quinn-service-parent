@@ -12,16 +12,16 @@
 
     <groupId>com.quinn</groupId>
     <artifactId>quinn-service-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <name>quinn-service-parent</name>
     <description>Quinn Service 父项目</description>
     <packaging>pom</packaging>
 
     <properties>
-        <util.version>1.0.0</util.version>
-        <util-private.version>1.0.0</util-private.version>
-        <framework.version>1.0.0</framework.version>
-        <licence-provider.version>1.0.0</licence-provider.version>
+        <util.version>1.1.0</util.version>
+        <util-private.version>1.1.0</util-private.version>
+        <framework.version>1.1.0</framework.version>
+        <licence-provider.version>1.1.0</licence-provider.version>
         <spring-boot.version>2.1.12.RELEASE</spring-boot.version>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
         <spring-cloud-alibaba.version>0.9.0.RELEASE</spring-cloud-alibaba.version>
