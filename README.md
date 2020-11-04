@@ -1,6 +1,6 @@
 # quinn-service-parent
 quinn-service-parent是Quinn-Service系列的顶层父项目，用于统一外部依赖。  
-**目前V1版本因为模块分布不够科学，准备停更。感兴趣的可以参照V2**  
+**目前V1.1.0版本因为模块分布不够科学，准备停更。感兴趣的可以参照V2**  
   
 ## Quinn-Service系列 项目目标  
 - 快速搭建科学合理的项目骨架（分层-分模块）
@@ -10,6 +10,12 @@ quinn-service-parent是Quinn-Service系列的顶层父项目，用于统一外�
 
 ## 目前实现的功能包括
 ### 工具层
+主要包括一些静态工具库，通用模型、枚举、常量，通用抽象。以quinn-service-util为groupId，根据不同的功能边界又做一下细分（artifactId）
+artifactId|名称|描述
+-- | -- | --
+quinn-util-base|基础工具类|例如字符串操作、数字操作、文件操作、枚举、常量等等
+quinn-util-database|数据库（JDBC）具类|直接操作JDBC、Datasource、Connection等等
+quinn-util-freemarker|Freemark工具类|添加Freemark引用然后简单封装
 
 ### 框架层
 
